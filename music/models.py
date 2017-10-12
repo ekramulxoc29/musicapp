@@ -5,6 +5,7 @@ class Album(models.Model):
     album_Name = models.CharField(max_length=200)
     Genre= models.CharField(max_length=200)
     logo=models.CharField(max_length=300)
+    video=models.CharField(max_length=600,default='')
 
     def __str__(self):
      return self.shilpi
