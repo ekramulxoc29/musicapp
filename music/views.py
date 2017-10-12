@@ -1,21 +1,21 @@
 from django.http import HttpResponse
-from django.template import loader
+from django.http import Http404
+from django.shortcuts import render
 from .models import Album
 
 
 def index(request):
     albumm = Album.objects.all()
-    html=''
+    context= dict( albumm=albumm )
 
-    for alb in albumm:
-        url= '/music/' + str(alb.id)
+    return render(request,'music/index.html',context)
 
-        html +='<a href="'+url+' ">' + alb.shilpi+' </a><br>'
-
-
-
-    return HttpResponse(html)
 
 
 def detail(request, album_Name_id):
-    return HttpResponse( "<h2>album id:" + str( album_Name_id ) + " </h2>" )
+    try:
+        alb=Album.objects.get(id=album_Name_id)
+    except Album.DoesNotExist:
+        raise Http404("Album does not exit")
+
+    return render(request,'music/detail.html',{'alb':alb})
