@@ -10,7 +10,7 @@
 {% if albumm %}
 <ul>
     {% for alb in albumm %}
-    <li><a href="/music/{{alb.id}}">{{ alb.album_Name }} </a> </li>
+    <li><a href="{% url 'music:detail' alb.id %}">{{ alb.album_Name }} </a> </li>
     {% endfor %}
 </ul>
 {% else %}

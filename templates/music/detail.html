@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>album</title>
 </head>
 <body>
-
 <h1>{{ alb.shilpi }}</h1>
-<h2>{{ alb.Genre }} </h2>
-
-
-
-<iframe width="560" height="315" src="{{ alb.video }}" frameborder="0" allowfullscreen></iframe>
-
+<h2>{{ alb.album_Name }}</h2>
+{% for gan in alb.song_set.all  %}
+<ul>
+    <li>{{ gan.Gaan_title }}</li>
+</ul>
+{% endfor %}
 </body>
 </html>

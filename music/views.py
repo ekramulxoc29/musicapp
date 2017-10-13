@@ -1,6 +1,5 @@
-from django.http import HttpResponse
-from django.http import Http404
-from django.shortcuts import render
+
+from django.shortcuts import render,get_object_or_404
 from .models import Album
 
 
@@ -13,9 +12,6 @@ def index(request):
 
 
 def detail(request, album_Name_id):
-    try:
-        alb=Album.objects.get(id=album_Name_id)
-    except Album.DoesNotExist:
-        raise Http404("Album does not exit")
+    alb=get_object_or_404(Album,pk=album_Name_id)
 
     return render(request,'music/detail.html',{'alb':alb})
