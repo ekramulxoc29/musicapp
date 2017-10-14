@@ -1,0 +1,20 @@
+body.page1{
+
+    background: url("images/bg.jpg");
+}
+body.page2{
+    background: url("images/bg.jpg");
+}
+
+  .formsong{
+    font: "Berlin Sans FB Demi";
+      color: firebrick;
+
+}
+  .page2 h1,h2{
+      color: gold;
+  }
+  .colorlink,.fc{
+      color: whitesmoke;
+      text-decoration: none;
+  }

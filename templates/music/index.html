@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load staticfiles %}
+    <link rel="stylesheet"  href="{% static 'music/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}"/>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body class="page1">
 
 <h2>List</h2>
 {% if albumm %}
 <ul>
     {% for alb in albumm %}
-    <li><a href="{% url 'music:detail' alb.id %}">{{ alb.album_Name }} </a> </li>
+    <li class="fc"><a class="colorlink" href="{% url 'music:detail' alb.id %}">{{ alb.album_Name }} </> </li>
     {% endfor %}
 </ul>
 {% else %}

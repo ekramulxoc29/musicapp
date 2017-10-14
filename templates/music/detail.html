@@ -1,4 +1,8 @@
 
+
+    {% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}"/>
+<body class="page2">
 <h1>{{ alb.shilpi }}</h1>
 <h2>{{ alb.album_Name }}</h2>
 
@@ -6,7 +10,7 @@
 <p><strong> {{ error_message }}</strong></p>
 {% endif %}
 
-<form action="{% url 'music:favorite' alb.id %}" method="post">
+<form action="{% url 'music:favorite' alb.id %}" class="formsong" method="post">
 
 {% csrf_token %}
     {% for song in alb.song_set.all %}
@@ -24,3 +28,4 @@
 
 <input type="submit" value="favorite">
 </form>
+</body>
