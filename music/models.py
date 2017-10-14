@@ -14,7 +14,7 @@ class Album(models.Model):
 class Song(models.Model):
     album=models.ForeignKey(Album,on_delete=models.CASCADE)
     Gaan_title = models.CharField(max_length=400)
-    fav=models.NullBooleanField(default=False)
+    fav=models.BooleanField(default=False)
 
     def __str__(self):
      return self.Gaan_title
