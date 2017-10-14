@@ -1,16 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>album</title>
-</head>
-<body>
+
 <h1>{{ alb.shilpi }}</h1>
 <h2>{{ alb.album_Name }}</h2>
-{% for gan in alb.song_set.all  %}
-<ul>
-    <li>{{ gan.Gaan_title }}</li>
-</ul>
-{% endfor %}
-</body>
-</html>
+
+{% if error_message %}
+<p><strong> {{ error_message }}</strong></p>
+{% endif %}
+
+<form action="{% url 'music:favorite' alb.id %}" method="post">
+
+{% csrf_token %}
+    {% for song in alb.song_set.all %}
+    <input type="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}">
+
+        <label for="song{{ forloop.counter }}">
+        {{ song.Gaan_title }}
+        {% if song.fav %}
+        <img src="http://i.imgur.com/b9b13Rd.png"/>
+        {% endif %}
+
+        </label><br>
+
+    {% endfor %}
+
+<input type="submit" value="favorite">
+</form>
