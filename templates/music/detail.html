@@ -1,7 +1,8 @@
 
+{% extends 'music/base.html' %}
+<title>{% block title %} album details {% endblock %}</title>
+{% block body %}
 
-    {% load staticfiles %}
-    <link rel="stylesheet" type="text/css" href="{% static 'music/style.css' %}"/>
 <body class="page2">
 <h1>{{ alb.shilpi }}</h1>
 <h2>{{ alb.album_Name }}</h2>
@@ -29,3 +30,4 @@
 <input type="submit" value="favorite">
 </form>
 </body>
+{% endblock %}

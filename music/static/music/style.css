@@ -14,7 +14,7 @@ body.page2{
   .page2 h1,h2{
       color: gold;
   }
-  .colorlink,.fc{
-      color: whitesmoke;
+  .c{
+      color: black !important;
       text-decoration: none;
   }
